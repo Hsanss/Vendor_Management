@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hasanudin — Vendor Management & Contract Administration</title>
+<meta name="description" content="Vendor Management & Contract Administration Professional — mengelola 300+ vendor transition, membangun sistem otomasi dokumen dengan efisiensi 93%+, di industri infrastruktur telekomunikasi FTTH & WiFi.">
+<meta property="og:title" content="Hasanudin — Vendor Management & Contract Administration">
+<meta property="og:description" content="Vendor Management & Contract Administration Professional — mengelola 300+ vendor transition, membangun sistem otomasi dokumen dengan efisiensi 93%+, di industri infrastruktur telekomunikasi FTTH & WiFi.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%23070C17%22/><text x=%2250%22 y=%2268%22 font-size=%2260%22 font-family=%22monospace%22 font-weight=%22bold%22 fill=%22%2335E8D2%22 text-anchor=%22middle%22>H</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy: #070C17;
+    --panel: #0F1B2E;
+    --panel-2: #142238;
+    --cyan: #35E8D2;
+    --amber: #E8A33D;
+    --periwinkle: #8FA8E8;
+    --ink: #EAF0F6;
+    --slate: #7E90A8;
+    --line: rgba(53,232,210,0.14);
+  }
+  *{ margin:0; padding:0; box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    background: var(--navy);
+    color: var(--ink);
+    font-family:'Inter', sans-serif;
+    line-height:1.55;
+  }
+  a{ color:inherit; }
+  .wrap{ max-width:1040px; margin:0 auto; padding:0 28px; }
+
+  /* ---------- Nav ---------- */
+  nav{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+    background: rgba(7,12,23,0.72);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{ max-width:1040px; margin:0 auto; padding:16px 28px; display:flex; align-items:center; justify-content:space-between; }
+  .logo{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:18px; color:var(--ink); text-decoration:none; }
+  .logo span{ color:var(--cyan); }
+  .nav-links{ display:flex; gap:26px; list-style:none; }
+  .nav-links a{
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; letter-spacing:0.5px;
+    color:var(--slate); text-decoration:none; transition:color 0.2s; position:relative; padding-bottom:2px;
+  }
+  .nav-links a:hover{ color:var(--cyan); }
+  .nav-links a.active{ color:var(--cyan); }
+  .nav-links a.active::after{
+    content:''; position:absolute; left:0; right:0; bottom:-6px; height:2px; background:var(--cyan);
+    box-shadow:0 0 8px rgba(53,232,210,0.7);
+  }
+  .nav-cta{
+    font-family:'JetBrains Mono', monospace; font-size:12px; font-weight:600; letter-spacing:0.5px;
+    color:var(--navy); background:var(--cyan); padding:9px 16px; border-radius:8px; text-decoration:none;
+  }
+  .nav-burger{
+    display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;
+  }
+  .nav-burger span{ width:22px; height:2px; background:var(--ink); border-radius:2px; transition:0.25s; }
+  .nav-burger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
+  .nav-burger.open span:nth-child(2){ opacity:0; }
+  .nav-burger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
+  .nav-mobile{
+    display:none; flex-direction:column; gap:2px; padding:8px 28px 18px;
+    background: rgba(7,12,23,0.98); border-bottom:1px solid var(--line);
+  }
+  .nav-mobile.open{ display:flex; }
+  .nav-mobile a{
+    font-family:'JetBrains Mono', monospace; font-size:13px; color:var(--slate); text-decoration:none;
+    padding:12px 4px; border-bottom:1px solid rgba(255,255,255,0.04);
+  }
+  .nav-mobile a:hover, .nav-mobile a.active{ color:var(--cyan); }
+  @media (max-width:760px){
+    .nav-links{ display:none; }
+    .nav-burger{ display:flex; }
+    .nav-cta{ display:none; }
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    min-height:78vh;
+    display:flex; align-items:center;
+    overflow:hidden;
+    background:
+      radial-gradient(900px 460px at 82% 8%, rgba(53,232,210,0.10), transparent 60%),
+      radial-gradient(650px 380px at 6% 95%, rgba(232,163,61,0.06), transparent 60%),
+      linear-gradient(160deg, var(--navy) 0%, #0A1220 60%, #0B1728 100%);
+  }
+  .hero::before{
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 44px 44px;
+    mask-image: radial-gradient(circle at 75% 30%, black, transparent 70%);
+  }
+  .hero-inner{ position:relative; padding:120px 0 80px; display:flex; align-items:center; gap:56px; }
+  .hero-text{ flex:1; min-width:0; }
+  .hero-photo{ flex-shrink:0; }
+  .hero-photo img{
+    width:220px; height:220px; border-radius:50%; object-fit:cover;
+    border:3px solid var(--cyan); box-shadow: 0 0 0 8px rgba(53,232,210,0.06), 0 20px 50px rgba(0,0,0,0.4);
+  }
+  @media (max-width:760px){
+    .hero-inner{ flex-direction:column-reverse; text-align:center; gap:28px; }
+    .pillars, .stats{ justify-content:center; }
+  }
+  .eyebrow{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:3px;
+    color: var(--cyan); text-transform:uppercase; margin-bottom:18px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{ content:''; width:7px; height:7px; border-radius:50%; background:var(--cyan); box-shadow:0 0 10px 2px rgba(53,232,210,0.7); }
+  .status-badge{
+    display:inline-flex; align-items:center; gap:8px; margin-bottom:22px;
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.5px;
+    color:var(--amber); background:rgba(232,163,61,0.08); border:1px solid rgba(232,163,61,0.3);
+    padding:7px 14px; border-radius:100px;
+  }
+  .status-badge .dot{ width:6px; height:6px; border-radius:50%; background:var(--amber); animation:pulse-dot 1.8s ease-in-out infinite; }
+  @keyframes pulse-dot{ 0%,100%{ opacity:1; } 50%{ opacity:0.35; } }
+  h1{
+    font-family:'Space Grotesk', sans-serif; font-weight:700;
+    font-size: clamp(42px, 7vw, 76px); letter-spacing:-1px; line-height:1.02;
+    margin-bottom:20px;
+  }
+  .role{
+    font-family:'Space Grotesk', sans-serif; font-weight:500; font-size:20px;
+    color: var(--slate); max-width:620px; margin-bottom:34px;
+  }
+  .role b{ color: var(--ink); font-weight:600; }
+  .pillars{ display:flex; flex-wrap:wrap; gap:12px; margin-bottom:44px; }
+  .pill{
+    font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:1px;
+    padding:8px 14px; border-radius:100px; border:1px solid var(--line);
+    color: var(--ink); background: rgba(255,255,255,0.02);
+  }
+  .pill.a{ color: var(--cyan); border-color: rgba(53,232,210,0.3); }
+  .pill.b{ color: var(--amber); border-color: rgba(232,163,61,0.3); }
+  .pill.c{ color: var(--periwinkle); border-color: rgba(143,168,232,0.3); }
+  .pill.featured{ color:var(--navy); font-weight:700; }
+  .pill.a.featured{ background:var(--cyan); border-color:var(--cyan); }
+  .pill.b.featured{ background:var(--amber); border-color:var(--amber); }
+  .pill.c.featured{ background:var(--periwinkle); border-color:var(--periwinkle); }
+  .skill-cat.featured{ border-color:var(--cyan); box-shadow:0 0 0 1px rgba(53,232,210,0.25), 0 12px 30px rgba(53,232,210,0.06); }
+
+  .stats{ display:flex; gap:48px; flex-wrap:wrap; }
+  .stat .num{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:30px; color: var(--cyan); }
+  .stat .lbl{ font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:1.5px; color: var(--slate); text-transform:uppercase; margin-top:2px; }
+
+  .hero-cta{ display:flex; gap:14px; flex-wrap:wrap; margin-top:32px; }
+  .btn-solid{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.5px; font-weight:600;
+    color: var(--navy); background: var(--cyan); padding:13px 22px; border-radius:10px;
+    text-decoration:none; display:inline-flex; align-items:center; gap:8px;
+  }
+  .btn-outline{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:0.5px; font-weight:600;
+    color: var(--ink); background:transparent; border:1px solid var(--line); padding:12px 22px; border-radius:10px;
+    text-decoration:none;
+  }
+
+  /* ---------- Tools strip ---------- */
+  .tools-strip{ border-top:1px solid var(--line); padding:28px 0; }
+  .tools-row{ display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .tool-badge{
+    font-family:'JetBrains Mono', monospace; font-size:11.5px; letter-spacing:0.5px;
+    color:var(--slate); border:1px solid var(--line); border-radius:100px; padding:7px 14px;
+  }
+
+  /* ---------- Case study ---------- */
+  .case{
+    background: var(--panel); border:1px solid var(--line); border-radius:18px;
+    padding:40px; display:grid; grid-template-columns:1fr 1fr; gap:36px;
+  }
+  .case-col h4{
+    font-family:'JetBrains Mono', monospace; font-size:11px; letter-spacing:2px; color:var(--cyan);
+    text-transform:uppercase; margin-bottom:10px;
+  }
+  .case-col p, .case-col li{ color:var(--slate); font-size:14px; line-height:1.75; }
+  .case-col ul{ padding-left:18px; margin-top:4px; }
+  .case-metrics{ display:flex; gap:28px; margin-top:22px; flex-wrap:wrap; }
+  .case-metrics .m{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:24px; color:var(--cyan); }
+  .case-metrics .l{ font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--slate); letter-spacing:1px; text-transform:uppercase; }
+  .case-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:18px; }
+  .case-tags span{
+    font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--periwinkle);
+    border:1px solid rgba(143,168,232,0.3); border-radius:6px; padding:4px 9px;
+  }
+  @media (max-width:760px){ .case{ grid-template-columns:1fr; padding:28px; } }
+
+  /* ---------- Section shell ---------- */
+  section{ padding:88px 0; border-top:1px solid var(--line); }
+  .kicker{ font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:2.5px; color:var(--cyan); text-transform:uppercase; margin-bottom:14px; }
+  h2{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:32px; margin-bottom:12px; }
+  .lede{ color: var(--slate); max-width:600px; margin-bottom:48px; font-size:16px; }
+
+  /* ---------- Achievements ---------- */
+  #achievements-list{ display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:18px; }
+  .card{
+    background: var(--panel); border:1px solid var(--line); border-radius:14px;
+    padding:26px; display:flex; flex-direction:column; gap:10px;
+  }
+  .card .metric{ font-family:'Space Grotesk', sans-serif; font-weight:700; font-size:26px; color: var(--cyan); }
+  .card .title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:17px; }
+  .card .desc{ color: var(--slate); font-size:14px; }
+  .card .date{ font-family:'JetBrains Mono', monospace; font-size:11px; color:#516278; margin-top:auto; padding-top:8px; }
+
+  /* ---------- Skills ---------- */
+  .skill-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:18px; }
+  .skill-cat{ background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:22px; }
+  .skill-cat h3{ font-family:'JetBrains Mono', monospace; font-size:12px; letter-spacing:1.5px; color:var(--cyan); text-transform:uppercase; margin-bottom:14px; }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:7px; }
+  .skill-tags span{
+    font-family:'Inter', sans-serif; font-size:12.5px; color:var(--ink);
+    background:rgba(255,255,255,0.03); border:1px solid var(--line); border-radius:7px; padding:5px 10px;
+  }
+  .skill-bars{ display:flex; flex-direction:column; gap:14px; margin-top:4px; }
+  .skill-bar-row{ display:flex; justify-content:space-between; font-size:12.5px; margin-bottom:5px; }
+  .skill-bar-row .lvl{ font-family:'JetBrains Mono', monospace; font-size:10.5px; color:var(--slate); }
+  .skill-bar-track{ height:5px; border-radius:100px; background:rgba(255,255,255,0.06); overflow:hidden; }
+  .skill-bar-fill{ height:100%; border-radius:100px; background:linear-gradient(90deg, var(--cyan), var(--periwinkle)); width:0%; transition:width 1.1s cubic-bezier(.2,.8,.2,1); }
+
+  /* ---------- Experience ---------- */
+  .exp-item{ padding:26px 0; border-bottom:1px solid var(--line); }
+  .exp-item:last-child{ border-bottom:none; }
+  .exp-top{ display:flex; justify-content:space-between; align-items:baseline; flex-wrap:wrap; gap:8px; margin-bottom:2px; }
+  .exp-title{ font-family:'Space Grotesk', sans-serif; font-weight:600; font-size:18px; }
+  .exp-date{ font-family:'JetBrains Mono', monospace; font-size:12px; color:var(--slate); }
+  .exp-co{ color:var(--cyan); font-size:14px; margin-bottom:2px; }
+  .exp-loc{ color:#516278; font-size:12.5px; font-family:'JetBrains Mono', monospace; margin-bottom:12px; }
+  .exp-item ul{ margin:0; padding-left:18px; color:var(--slate); font-size:14px; line-height:1.75; }
+  .exp-item li{ margin-bottom:4px; }
+
+  /* ---------- Background ---------- */
+  .bg-grid{ display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:18px; }
+  .bg-item{ background:var(--panel-2); border:1px solid var(--line); border-radius:14px; padding:24px; }
+  .bg-item h3{ font-family:'Space Grotesk', sans-serif; font-size:16px; margin-bottom:8px; color:var(--ink); }
+  .bg-item p{ color:var(--slate); font-size:14px; }
+
+  /* ---------- Contact ---------- */
+  .contact{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:24px; }
+  .contact a.btn{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:1px;
+    color: var(--navy); background: var(--cyan); padding:14px 22px; border-radius:10px;
+    text-decoration:none; font-weight:600;
+  }
+  footer{ padding:40px 0 28px; border-top:1px solid var(--line); }
+  .footer-inner{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:18px; }
+  .footer-links{ display:flex; gap:20px; list-style:none; flex-wrap:wrap; }
+  .footer-links a{ font-family:'JetBrains Mono', monospace; font-size:11.5px; color:var(--slate); text-decoration:none; }
+  .footer-links a:hover{ color:var(--cyan); }
+
+  .reveal{ opacity:0; transform:translateY(24px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .reveal.in{ opacity:1; transform:translateY(0); }
+
+  .back-to-top{
+    position:fixed; right:22px; bottom:22px; z-index:90;
+    width:44px; height:44px; border-radius:50%; background:var(--panel); border:1px solid var(--line);
+    color:var(--cyan); display:flex; align-items:center; justify-content:center; cursor:pointer;
+    text-decoration:none; font-size:16px; opacity:0; pointer-events:none; transform:translateY(10px);
+    transition:opacity 0.25s, transform 0.25s;
+  }
+  .back-to-top.show{ opacity:1; pointer-events:auto; transform:translateY(0); }
+
+  .copy-email{
+    font-family:'JetBrains Mono', monospace; font-size:13px; letter-spacing:1px; font-weight:600;
+    color:var(--navy); background:var(--cyan); border:none; padding:14px 18px; border-radius:10px 0 0 10px;
+    cursor:pointer;
+  }
+  .contact-email-group{ display:flex; }
+  .contact-email-group a.btn{ border-radius:0 10px 10px 0; }
+  .toast{
+    position:fixed; left:50%; bottom:30px; transform:translateX(-50%) translateY(20px);
+    background:var(--panel); border:1px solid var(--line); color:var(--ink);
+    font-family:'JetBrains Mono', monospace; font-size:12.5px; padding:11px 18px; border-radius:10px;
+    opacity:0; pointer-events:none; transition:opacity 0.25s, transform 0.25s; z-index:200;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  @media print{
+    nav, .hero-cta, .back-to-top, .tools-strip, .status-badge{ display:none !important; }
+    body{ background:#fff; color:#111; }
+    section{ border-color:#ddd; }
+  }
+  @media (max-width:640px){
+    .stats{ gap:28px; }
+    .contact{ flex-direction:column; align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-inner">
+      <a href="#top" class="logo">Hasanu<span>din</span></a>
+      <ul class="nav-links">
+        <li><a href="#achievements" data-nav>Achievements</a></li>
+        <li><a href="#case-study" data-nav>Case Study</a></li>
+        <li><a href="#experience" data-nav>Pengalaman</a></li>
+        <li><a href="#background" data-nav>Skills</a></li>
+        <li><a href="#education" data-nav>Edukasi</a></li>
+      </ul>
+      <a class="nav-cta" href="#contact">Kontak</a>
+      <button class="nav-burger" id="navBurger" aria-label="Buka menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+    <div class="nav-mobile" id="navMobile">
+      <a href="#achievements">Achievements</a>
+      <a href="#case-study">Case Study</a>
+      <a href="#experience">Pengalaman</a>
+      <a href="#background">Skills</a>
+      <a href="#education">Edukasi</a>
+      <a href="#contact">Kontak</a>
+    </div>
+  </nav>
+
+  <section class="hero" id="top">
+    <div class="wrap hero-inner">
+      <div class="hero-text">
+        <div class="status-badge"><span class="dot"></span>Terbuka untuk peluang baru</div>
+        <div class="eyebrow">Vendor Management &amp; Contract Administration</div>
+        <h1>Hasanudin</h1>
+        <p class="role">Profesional <b>Vendor Management</b> dengan pengalaman lebih dari 1,5 tahun mengelola operasional vendor end-to-end untuk 300+ site infrastruktur FTTH &amp; WiFi — mencakup lifecycle management, KPI/SLA monitoring, hingga penyelesaian dispute kontraktual.</p>
+        <div class="pillars">
+          <span class="pill a featured">VENDOR MANAGEMENT</span>
+          <span class="pill b">CONTRACT &amp; COMPLIANCE</span>
+          <span class="pill c">PROCESS AUTOMATION</span>
+        </div>
+        <div class="stats">
+          <div class="stat"><div class="num">300+</div><div class="lbl">Vendor Transition</div></div>
+          <div class="stat"><div class="num">93%+</div><div class="lbl">Efisiensi Proses</div></div>
+          <div class="stat"><div class="num">95%</div><div class="lbl">Compliance Rate</div></div>
+          <div class="stat"><div class="num">1.5+</div><div class="lbl">Tahun Pengalaman</div></div>
+        </div>
+        <div class="hero-cta">
+          <a class="btn-solid" href="CV_Hasanudin.pdf" download>&#8595;&nbsp; Unduh CV</a>
+          <a class="btn-outline" href="#contact">Hubungi Saya</a>
+        </div>
+      </div>
+      <div class="hero-photo">
+        <img src="assets/profile.jpg" alt="Foto Hasanudin">
+      </div>
+    </div>
+  </section>
+
+  <div class="tools-strip">
+    <div class="wrap">
+      <div class="tools-row">
+        <span class="tool-badge">Google Apps Script</span>
+        <span class="tool-badge">Excel &amp; VBA</span>
+        <span class="tool-badge">Google Sheets API</span>
+        <span class="tool-badge">Google Workspace</span>
+        <span class="tool-badge">ODOO ERP</span>
+        <span class="tool-badge">Accurate</span>
+        <span class="tool-badge">Privy Digital Signature</span>
+        <span class="tool-badge">OSS RBA</span>
+      </div>
+    </div>
+  </div>
+
+  <section id="achievements">
+    <div class="wrap">
+      <div class="kicker">Achievements</div>
+      <h2>Hasil kerja yang terukur</h2>
+      <p class="lede">Pencapaian konkret selama berkarir di bidang Vendor Management &amp; Contract Administration.</p>
+      <div id="achievements-list" class="reveal">
+        <div class="card">
+          <div class="metric">300+</div>
+          <div class="title">Vendor Transition Selesai</div>
+          <div class="desc">Memimpin lebih dari 300 proses vendor transition berbasis SLA sebagai PIC utama, mencakup koordinasi service migration dan penyelesaian kewajiban kontraktual.</div>
+          <div class="date">Feb 2026 — Sekarang</div>
+        </div>
+        <div class="card">
+          <div class="metric">93%+</div>
+          <div class="title">Efisiensi Otomasi Dokumen</div>
+          <div class="desc">Membangun sistem otomasi dokumen vendor (Google Apps Script) — memangkas waktu pembuatan dokumen dari 15 menit menjadi kurang dari 1 menit per dokumen.</div>
+          <div class="date">2026</div>
+        </div>
+        <div class="card">
+          <div class="metric">75%+</div>
+          <div class="title">Percepatan Procurement Cycle</div>
+          <div class="desc">Merancang Procurement Tracking System (Excel VBA) yang mempercepat procurement cycle dari 1 bulan menjadi 1 minggu.</div>
+          <div class="date">2026</div>
+        </div>
+        <div class="card">
+          <div class="metric">95%</div>
+          <div class="title">Compliance Rate Perusahaan</div>
+          <div class="desc">Meningkatkan compliance rate dari 80% menjadi 95% selama menjabat sebagai Legal, Compliance &amp; HR Lead di PT Anugerah Anan Farma.</div>
+          <div class="date">Mei 2023 — Mei 2024</div>
+        </div>
+        <div class="card">
+          <div class="metric">±Rp250jt</div>
+          <div class="title">Risiko Kerugian Dimitigasi</div>
+          <div class="desc">Melakukan audit kepatuhan yang berhasil memitigasi risiko kerugian bisnis hingga ±Rp250 juta melalui identifikasi celah kontraktual dan operasional.</div>
+          <div class="date">2023 — 2024</div>
+        </div>
+        <div class="card">
+          <div class="metric">10+</div>
+          <div class="title">UMKM Didampingi</div>
+          <div class="desc">Mendampingi lebih dari 10 pelaku usaha dalam pengurusan perizinan OSS RBA dan sertifikasi halal sebagai Freelance Paralegal &amp; Business Compliance Consultant.</div>
+          <div class="date">2024 — Sekarang</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="case-study">
+    <div class="wrap">
+      <div class="kicker">Featured Case Study</div>
+      <h2>Sistem Otomasi Dokumen Vendor</h2>
+      <p class="lede">Dibangun mandiri untuk mengatasi bottleneck administrasi dokumen pada proses take over 300+ vendor.</p>
+      <div class="case reveal">
+        <div class="case-col">
+          <h4>Problem</h4>
+          <p>Proses pembuatan dokumen vendor (BAP PO, BASTM, Surat Peringatan, SPK Take Over, BA Cancel) dilakukan manual satu per satu — memakan waktu ±15 menit per dokumen dan rawan human error, di tengah volume 300+ site yang harus diproses.</p>
+          <h4 style="margin-top:22px;">Solusi yang Dibangun</h4>
+          <ul>
+            <li>Sistem lookup &amp; data matching lintas sumber (Google Sheets API) untuk menyatukan data dari beberapa spreadsheet berbeda</li>
+            <li>Auto-sync trigger berbasis event — data ter-update otomatis begitu ada perubahan</li>
+            <li>Custom search interface (HTML/CSS/JS) dengan real-time filtering</li>
+            <li>Validasi anti-duplikasi dan retry logic untuk menangani error akses dokumen</li>
+          </ul>
+        </div>
+        <div class="case-col">
+          <h4>Cakupan Sistem</h4>
+          <p>Satu database terpusat mengelola <b style="color:var(--ink)">7 jenis dokumen vendor</b>: BAP PO, BASTM, SP1–SP3, SPK Take Over, dan BA Cancel IKR &amp; MS — masing-masing dengan template dan folder tujuan otomatis di Google Drive.</p>
+          <div class="case-tags">
+            <span>Google Apps Script</span><span>Sheets API</span><span>Event Trigger</span><span>Custom UI</span><span>Error Handling</span>
+          </div>
+          <div class="case-metrics">
+            <div><div class="m">15&thinsp;&rarr;&thinsp;&lt;1</div><div class="l">Menit per Dokumen</div></div>
+            <div><div class="m">93%+</div><div class="l">Efisiensi Waktu</div></div>
+            <div><div class="m">7</div><div class="l">Jenis Dokumen</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="wrap">
+      <div class="kicker">Pengalaman</div>
+      <h2>Perjalanan profesional</h2>
+
+      <div class="exp-item reveal">
+        <div class="exp-top">
+          <div class="exp-title">Vendor Management &amp; Contract Administration Officer</div>
+          <div class="exp-date">Feb 2026 — Sekarang</div>
+        </div>
+        <div class="exp-co">PT Personel Alih Daya Tbk <span style="color:var(--slate)">(Penempatan: PT Integrasi Jaringan Ekosistem — Surge Group)</span></div>
+        <div class="exp-loc">TELECOMMUNICATION NETWORK · INFRASTRUKTUR FTTH &amp; WIFI</div>
+        <ul>
+          <li>Memimpin lebih dari 300 proses vendor transition berbasis SLA sebagai PIC utama — mencakup koordinasi service migration, penyelesaian kewajiban kontraktual, recovery Down Payment (DP), serta pengelolaan stakeholder lintas fungsi</li>
+          <li>Mengelola vendor lifecycle management end-to-end (onboarding hingga offboarding) untuk mendukung operasional FTTH &amp; WiFi Infrastructure di 5 divisi/wilayah</li>
+          <li>Memonitor KPI dan SLA vendor secara berkala guna memastikan kualitas layanan, kepatuhan operasional, serta pencapaian target bisnis</li>
+          <li>Mengelola administrasi dan validasi dokumen kontraktual: SPK, PO, SOW, Amandemen Kontrak, BA/BAST, dan Surat Edaran</li>
+          <li>Bertindak sebagai escalation point utama dalam penyelesaian isu operasional, administrasi vendor, dan dokumentasi kontraktual</li>
+          <li>Menangani penerbitan Surat Peringatan (SP1–SP3) bagi mitra underperform, termasuk proses eskalasi hingga resolusi dispute</li>
+          <li>Mengelola rekonsiliasi netoff, refund, dan PO Close — memastikan akurasi pembayaran tanpa kerugian finansial bagi perusahaan</li>
+          <li>Mengoordinasikan migrasi akun pada proses take over vendor, memastikan transisi bebas gangguan operasional dan bebas multitafsir secara legal</li>
+          <li>Mengumpulkan dan menyusun bukti pendukung dalam penanganan somasi untuk kepentingan legal claim</li>
+          <li>Berkolaborasi dengan PMO, Finance, Procurement, IT, Corporate Legal, Head Region, dan Core Site dalam penyelesaian eskalasi operasional, service migration, serta dispute kontraktual</li>
+          <li><b style="color:var(--ink)">Merancang &amp; membangun sendiri</b> Procurement Tracking System (Excel VBA) — mempercepat procurement cycle dari 1 bulan menjadi 1 minggu (efisiensi 75%+)</li>
+          <li><b style="color:var(--ink)">Merancang &amp; membangun sendiri</b> sistem otomasi dokumen (Google Apps Script) mencakup 7 jenis dokumen (SPK, SP1-3, BA/BASTM, BA Cancel) — efisiensi proses 93%+</li>
+          <li>Menyusun Buku Panduan Mitra PT IJE STARLITE FTTH (Versi 1.3, Juni 2026) sebagai SOP resmi tim Vendor Management</li>
+          <li>Memastikan seluruh dokumen vendor dan kontraktual terdokumentasi akurat serta siap mendukung kebutuhan audit internal maupun eksternal</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-top">
+          <div class="exp-title">Legal, Compliance &amp; HR Lead</div>
+          <div class="exp-date">Mei 2023 — Mei 2024</div>
+        </div>
+        <div class="exp-co">PT Anugerah Anan Farma</div>
+        <div class="exp-loc">KAB. BOGOR, JAWA BARAT · SEKTOR FARMASI &amp; KLINIK</div>
+        <ul>
+          <li>Menyusun, me-review, dan mengelola administrasi 50+ kontrak kerja sama vendor dan dokumen legal korporat</li>
+          <li>Melakukan audit kepatuhan yang berhasil memitigasi risiko kerugian bisnis hingga ±Rp250 juta</li>
+          <li>Memimpin operasional harian dan memberikan arahan strategis kepada tim Administrasi, Purchasing, Apoteker, serta Tenaga Teknis Kefarmasian (TTK)</li>
+          <li>Mengevaluasi kinerja operasional dan purchasing di tingkat cabang, mempresentasikan laporan analitik mingguan langsung kepada Direktur</li>
+          <li>Mengawal proses perizinan ekspansi 10 cabang melalui Sistem OSS RBA dan portal DPMPTSP</li>
+          <li>Meningkatkan compliance rate perusahaan dari 80% menjadi 95% dalam masa jabatan</li>
+        </ul>
+      </div>
+
+      <div class="exp-item reveal">
+        <div class="exp-top">
+          <div class="exp-title">Freelance Paralegal &amp; Business Compliance Consultant</div>
+          <div class="exp-date">2024 — Sekarang</div>
+        </div>
+        <div class="exp-co">Independen</div>
+        <div class="exp-loc">KOTA TANGERANG SELATAN · PARALEL DENGAN PEKERJAAN UTAMA</div>
+        <ul>
+          <li>Mendampingi 10+ pelaku usaha (UMKM) dalam pengurusan perizinan OSS RBA dan sertifikasi halal</li>
+          <li>Menyusun compliance guideline, due diligence checklist, dan dokumen legal usaha untuk klien</li>
+          <li>Memberikan konsultasi terkait legalitas dan kepatuhan operasional usaha secara berkelanjutan</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="background">
+    <div class="wrap">
+      <div class="kicker">Skills</div>
+      <h2>Keahlian &amp; kompetensi</h2>
+      <p class="lede">Level kemahiran di bawah ini mengikuti penilaian yang tercantum resmi di CV.</p>
+
+      <div class="skill-bars reveal">
+        <div>
+          <div class="skill-bar-row"><span>Microsoft Excel</span><span class="lvl">ADVANCED</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="92"></div></div>
+        </div>
+        <div>
+          <div class="skill-bar-row"><span>Bahasa Indonesia</span><span class="lvl">NATIVE</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="100"></div></div>
+        </div>
+        <div>
+          <div class="skill-bar-row"><span>Bahasa Arab</span><span class="lvl">PROFESSIONAL WORKING</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="72"></div></div>
+        </div>
+        <div>
+          <div class="skill-bar-row"><span>Bahasa Inggris</span><span class="lvl">BASIC WORKING</span></div>
+          <div class="skill-bar-track"><div class="skill-bar-fill" data-width="38"></div></div>
+        </div>
+      </div>
+
+      <div class="skill-grid" style="margin-top:36px;">
+        <div class="skill-cat featured" data-skill="vendor">
+          <h3>Vendor Management</h3>
+          <div class="skill-tags">
+            <span>Vendor Lifecycle Management</span><span>Vendor Governance</span><span>Onboarding &amp; Offboarding</span>
+            <span>KPI &amp; SLA Monitoring</span><span>Vendor Compliance</span><span>Stakeholder Management</span><span>Escalation Management</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3>Contract Administration</h3>
+          <div class="skill-tags">
+            <span>Contract Review &amp; Validation</span><span>Statement of Work (SOW)</span><span>PO Validation</span>
+            <span>SPK Administration</span><span>BA/BAST Processing</span><span>Billing Validation</span><span>Amendment Management</span><span>Audit Documentation</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3>Legal &amp; Compliance</h3>
+          <div class="skill-tags">
+            <span>Legal Drafting</span><span>Contract Drafting &amp; Review</span><span>Regulatory Compliance</span>
+            <span>Legal Risk Mitigation</span><span>Corporate Documentation</span><span>OSS RBA Licensing</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3>Process Improvement</h3>
+          <div class="skill-tags">
+            <span>Process Automation</span><span>Workflow Optimization</span><span>Document Control</span>
+            <span>Digital Filing System</span><span>Process Standardization</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3>Technical</h3>
+          <div class="skill-tags">
+            <span>VBA Automation</span><span>Google Apps Script</span><span>Google Sheets API</span><span>Dashboard Reporting</span>
+            <span>Google Workspace</span><span>ODOO ERP</span><span>Accurate</span><span>Privy Digital Signature</span>
+          </div>
+        </div>
+        <div class="skill-cat">
+          <h3>Soft Skills</h3>
+          <div class="skill-tags">
+            <span>Cross-functional Collaboration</span><span>Negotiation</span><span>Problem Solving</span>
+            <span>Attention to Detail</span><span>Adaptability</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="education">
+    <div class="wrap">
+      <div class="kicker">Pendidikan &amp; Sertifikasi</div>
+      <h2>Latar belakang akademik</h2>
+      <div class="bg-item" style="margin-bottom:18px;">
+        <h3>S1 Dirasat Islamiyah (Fokus: Syariah / Hukum Islam)</h3>
+        <p>UIN Syarif Hidayatullah Jakarta · Sep 2019 – Apr 2023 · IPK 3.47/4.00 (Wisudawan Tercepat)<br>
+        Skripsi: "Hukum Jual Beli Akun Game" — dipublikasikan pada jurnal nasional hukum siber &amp; muamalah.</p>
+      </div>
+      <div class="bg-grid">
+        <div class="bg-item"><h3>Supply Chain Management</h3><p>MindLuster — April 2026</p></div>
+        <div class="bg-item"><h3>AI Training Program</h3><p>Surge × Huawei — Agustus 2026</p></div>
+        <div class="bg-item"><h3>Pendamping Proses Produk Halal</h3><p>BPJPH, Kemenag RI — Mei 2025</p></div>
+        <div class="bg-item"><h3>Employment Law &amp; HR Foundation</h3><p>MindLuster — Mei 2025</p></div>
+        <div class="bg-item"><h3>Advanced Excel Training</h3><p>GCF Global — Mei 2025</p></div>
+        <div class="bg-item"><h3>Dasar AI untuk Mengajar</h3><p>Diklat Nasional — 2025</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="wrap contact">
+      <div>
+        <div class="kicker">Kontak</div>
+        <h2 style="margin-bottom:6px;">Terbuka untuk berdiskusi</h2>
+        <p class="lede" style="margin-bottom:0;">Seputar Vendor Management, Contract Administration, dan Legal Compliance.</p>
+      </div>
+      <div class="contact-email-group">
+        <button class="copy-email" id="copyEmailBtn" title="Salin email">&#128203;</button>
+        <a class="btn" href="mailto:hasanudin.legal@gmail.com">hasanudin.legal@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap footer-inner">
+      <div>
+        <div class="logo" style="font-size:15px;">Hasanu<span>din</span></div>
+        <p style="color:#4A5A72; font-size:12px; margin-top:6px;">Vendor Management &amp; Contract Administration Professional</p>
+      </div>
+      <ul class="footer-links">
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#case-study">Case Study</a></li>
+        <li><a href="#experience">Pengalaman</a></li>
+        <li><a href="#background">Skills</a></li>
+        <li><a href="#education">Edukasi</a></li>
+      </ul>
+      <p style="color:#4A5A72; font-size:12px;">© <span id="year"></span> Hasanudin</p>
+    </div>
+  </footer>
+
+  <a href="#top" class="back-to-top" id="backToTop" aria-label="Kembali ke atas">&#8593;</a>
+  <div class="toast" id="toast">Email disalin ke clipboard</div>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  // Mobile nav
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('navMobile');
+  burger.addEventListener('click', () => {
+    const isOpen = mobileMenu.classList.toggle('open');
+    burger.classList.toggle('open', isOpen);
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    mobileMenu.classList.remove('open');
+    burger.classList.remove('open');
+    burger.setAttribute('aria-expanded', false);
+  }));
+
+  // Scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) { entry.target.classList.add('in'); revealObserver.unobserve(entry.target); }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+  // Skill bars
+  document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+    const o = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { bar.style.width = bar.dataset.width + '%'; o.unobserve(bar); } });
+    }, { threshold: 0.3 });
+    o.observe(bar);
+  });
+
+  // Scrollspy
+  const navLinks = document.querySelectorAll('a[data-nav]');
+  new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      const link = document.querySelector(`a[data-nav][href="#${entry.target.id}"]`);
+      if (link && entry.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); link.classList.add('active'); }
+    });
+  }, { rootMargin: '-45% 0px -50% 0px' }).observe && document.querySelectorAll('section[id]').forEach(s => {
+    new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        const link = document.querySelector(`a[data-nav][href="#${entry.target.id}"]`);
+        if (link && entry.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); link.classList.add('active'); }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px' }).observe(s);
+  });
+
+  // Back to top
+  window.addEventListener('scroll', () => {
+    document.getElementById('backToTop').classList.toggle('show', window.scrollY > 500);
+  });
+
+  // Copy email
+  const toast = document.getElementById('toast');
+  document.getElementById('copyEmailBtn').addEventListener('click', async () => {
+    try { await navigator.clipboard.writeText('hasanudin.legal@gmail.com'); toast.textContent = 'Email disalin ke clipboard'; }
+    catch (e) { toast.textContent = 'hasanudin.legal@gmail.com'; }
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2200);
+  });
+</script>
+</body>
+</html>
